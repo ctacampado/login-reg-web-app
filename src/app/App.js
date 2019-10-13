@@ -19,14 +19,12 @@ const StyledPreContentDiv = styled.div`
   padding-top: ${lvars.PRE_CONT_DIV_PADDING_TOP};
 `
 const StyledContent = styled(Content)`
-  min-height: calc(100vh - ${lvars.PRE_CONT_TOTAL_HEIGHT});
+  min-height: calc(100vh - ${lvars.HEADER_HEIGHT} - ${lvars.PRE_CONT_DIV_PADDING_TOP});
   max-width: 100%;
   padding-left: calc(50vw - ${lvars.CONT_PADDING_SUB});
   padding-right: calc(50vw - ${lvars.CONT_PADDING_SUB});
 `
-const StyledCard = styled(Card)`
-  min-width: 320px;
-`
+
 const StyledFooter = styled(Footer)`
   text-align: center;
 `
@@ -39,9 +37,7 @@ function App() {
       </Header>
       <StyledPreContentDiv/>
       <StyledContent>
-        <StyledCard>
-          {routeResult} 
-        </StyledCard>
+        {routeResult}
       </StyledContent>
       <StyledFooter>
         MyId ©2019 Created by MyTech
