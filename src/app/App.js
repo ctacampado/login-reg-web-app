@@ -6,12 +6,6 @@ import WrappedNormalSignInForm from '../components/forms/signInForm'
 import * as lvars from './Vars';
 import WrappedSignUpForm from '../components/forms/signUpForm'
 import {useRoutes} from 'hookrouter';
- 
-const routes = {
-    '/': () => <WrappedNormalSignInForm />,
-    '/signin': () => <WrappedNormalSignInForm />,
-    '/signup': () => <WrappedSignUpForm />
-};
 
 const { Header, Content, Footer } = Layout;
 
@@ -28,6 +22,12 @@ const StyledContent = styled(Content)`
 const StyledFooter = styled(Footer)`
   text-align: center;
 `
+ 
+const routes = {
+  '/': () => <WrappedNormalSignInForm />,
+  '/signin': () => <WrappedNormalSignInForm />,
+  '/signup': () => <WrappedSignUpForm />
+};
 
 function App() {
   const routeResult = useRoutes(routes);
