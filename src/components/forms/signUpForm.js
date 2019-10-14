@@ -22,10 +22,6 @@ const StyledSignUpInput = styled(Input)`
   color: rgba(0,0,0,.25);
 `
 
-const StyledSignUpSelect = styled(Select)`
-  width: 70
-`
-
 const { Option } = Select;
 
 function SignUpForm(props) {
@@ -62,13 +58,10 @@ function SignUpForm(props) {
         callback();
     };
 
-    const prefixSelector = getFieldDecorator('prefix', {
-        initialValue: '63',
-      })(
-        <StyledSignUpSelect>
-          <Option value="63">+63</Option>
-        </StyledSignUpSelect>,
-    );
+    const verifyCallback = (recaptchaToken) => {
+      // Here you will get the final recaptchaToken!!!  
+      console.log(recaptchaToken, "<= your recaptcha token")
+    }
 
     return (
       <StyledCard>
@@ -131,16 +124,7 @@ function SignUpForm(props) {
               />
             )}
           </Form.Item>
-          <Form.Item label="Phone Number">
-            {getFieldDecorator('phone', {
-              rules: [{ required: true, message: 'Please input your phone number!' }],
-            })(
-              <StyledSignUpInput 
-                addonBefore={prefixSelector} 
-              />
-            )}
-          </Form.Item>
-          <Form.Item >
+          {/*<Form.Item >
             {getFieldDecorator('agreement', {
               valuePropName: 'checked',
             })(
@@ -148,7 +132,7 @@ function SignUpForm(props) {
                 I have read the <a href="">agreement</a>
               </Checkbox>,
             )}
-          </Form.Item>
+            </Form.Item>*/}
           <Form.Item>
             <StyledSignUpFormButton type="primary" htmlType="submit">
               Submit
